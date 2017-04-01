@@ -1,0 +1,22 @@
+<ion-header class="primary">
+  <ion-toolbar color="primary">
+      <ion-title>Mood Status</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <ion-item-group *ngFor="let mood of moodTimingGroup">
+            <ion-item-divider color='light'>
+                {{mood.title}}
+            </ion-item-divider>
+            <ion-item *ngIf="mood.moods ==  0">
+                <h2 item-left>No status!</h2>
+            </ion-item>
+            <ion-item *ngFor="let ms of mood.moods">
+                <h2>{{ms.title}}</h2>
+                <p>{{ms.created | date: "shortTime" }}</p>
+            </ion-item>
+        </ion-item-group>
+    </ion-list>
+</ion-content>
